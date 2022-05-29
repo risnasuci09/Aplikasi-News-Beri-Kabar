@@ -1,6 +1,7 @@
 package com.example.berikabar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +15,10 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 public class BeritaDetail extends AppCompatActivity {
-    TextView tvJudul,tvSumber,tvTanggal,tvDeskripsi;
+    TextView tvJudul,tvSumber,tvTanggal,tvAuthor,tvDeskripsi, tvUrl;
+    String titleBerita,timeBerita,authorBerita,sumberBerita,deskripsiBerita,urlBerita,imageUrl;
     ImageView imageView;
-    WebView webView;
-    ProgressBar loader;
+    AppCompatButton btnCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,38 +27,54 @@ public class BeritaDetail extends AppCompatActivity {
         tvJudul = findViewById(R.id.tvJudul);
         tvSumber = findViewById(R.id.tvSumber);
         tvTanggal = findViewById(R.id.tvDate);
+        tvAuthor = findViewById(R.id.tvAuthor);
         tvDeskripsi = findViewById(R.id.tvDeskripsi);
-
+        tvUrl = findViewById(R.id.tvUrl);
         imageView = findViewById(R.id.imageView);
+        btnCheck = findViewById(R.id.buttonWebView);
 
-        webView = findViewById(R.id.webView);
+        getData();
+        setData();
 
-        loader = findViewById(R.id.webViewLoader);
-        loader.setVisibility(View.VISIBLE);
+        btnCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(BeritaDetail.this, BeritaWebView.class).putExtra("url", urlBerita));
 
+            }
+        });
+    }
+
+    public void getData(){
         Intent intent = getIntent();
-        String judul = intent.getStringExtra("judul");
-        String sumber = intent.getStringExtra("sumber");
-        String tanggal = intent.getStringExtra("tanggal");
-        String deskripsi = intent.getStringExtra("deskripsi");
-        String imageUrl = intent.getStringExtra("imageUrl");
-        String url = intent.getStringExtra("url");
+        titleBerita = intent.getStringExtra("title");
+        sumberBerita = intent.getStringExtra("source");
+        timeBerita = intent.getStringExtra("time");
+        deskripsiBerita  = intent.getStringExtra("desc");
+        authorBerita = intent.getStringExtra("author");
+        imageUrl = intent.getStringExtra("imageUrl");
+        urlBerita = intent.getStringExtra("url");
 
-        tvJudul.setText(judul);
-        tvSumber.setText(sumber);
-        tvTanggal.setText(tanggal);
-        tvDeskripsi.setText(deskripsi);
+    }
 
-        Picasso.with(BeritaDetail.this).load(imageUrl).into(imageView);
+    public void setData(){
+        tvJudul.setText(titleBerita);
+        tvTanggal.setText(timeBerita);
+        tvAuthor.setText(authorBerita);
+        tvSumber.setText(sumberBerita);
+        tvDeskripsi.setText(deskripsiBerita);
+        tvUrl.setText(urlBerita);
+        Picasso.with(BeritaDetail.this).load(imageUrl).fit().into(imageView);
+    }
 
-        webView.getSettings().setDomStorageEnabled(true);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setLoadsImagesAutomatically(true);
-        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl(url);
-        if (webView.isShown()){
-            loader.setVisibility(View.INVISIBLE);
-        }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

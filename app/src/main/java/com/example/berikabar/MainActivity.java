@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     EditText etSearch;
     AppCompatButton btnSearchBerita;
-    final String API_KEY = "a85f610b52eb41bcaa0331c0964be615";
+    String API_KEY = "c9eed5fb17234878b2bb48e51cd1a6db";
     String country = "id";
     BeritaAdapter adapter;
     List<Berita> beritaList = new ArrayList<>();

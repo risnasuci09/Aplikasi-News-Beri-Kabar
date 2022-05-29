@@ -57,6 +57,7 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
                 Intent intent = new Intent(context,BeritaDetail.class);
                 intent.putExtra("title",berita.getTitle());
                 intent.putExtra("source",berita.getSource().getName());
+                intent.putExtra("author",berita.getAuthor());
                 intent.putExtra("time",dateTime(berita.getPublishedAt()));
                 intent.putExtra("desc",berita.getDescription());
                 intent.putExtra("imageUrl",berita.getUrlToImage());
