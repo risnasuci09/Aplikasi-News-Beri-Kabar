@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.berikabar.entity.Berita;
+import com.example.berikabar.berita.Berita;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

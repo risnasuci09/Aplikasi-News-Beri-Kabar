@@ -4,12 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/drawable/gradient.xml" value="0.162" />
+        <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/drawable/ic_bookmark_open.xml" value="0.1005" />
         <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/drawable/icon_search.xml" value="0.1045" />
-        <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/layout/activity_berita_detail.xml" value="0.344294003868472" />
+        <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/drawable/icon_vert.xml" value="0.1025" />
+        <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/drawable/selector.xml" value="0.1005" />
+        <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/layout/activity_berita_detail.xml" value="0.25" />
         <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/layout/activity_berita_web_view.xml" value="0.1" />
-        <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/layout/activity_main.xml" value="0.1962962962962963" />
+        <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/layout/activity_bookmark.xml" value="0.33" />
+        <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/layout/activity_splash_screen.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/layout/list_berita.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/layout/list_bookmark.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Yosua L/AndroidStudioProjects/BeriKabar/app/src/main/res/menu/menu_navigation.xml" value="0.18" />
       </map>
     </option>
   </component>

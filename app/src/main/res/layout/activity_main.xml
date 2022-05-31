@@ -46,6 +46,8 @@
             android:text="CARI"
             android:textStyle="bold"
             android:layout_row="0" />
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -76,22 +78,31 @@
     </LinearLayout>
 
 
-
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:id="@+id/swipeRefresh">
+        android:id="@+id/swipeRefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:layout_marginTop="5dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
+            android:id="@+id/recyclerView"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:id="@+id/recyclerView"/>
+            android:layout_marginTop="5dp" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:outlineAmbientShadowColor="@color/black"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/white"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:menu="@menu/menu_navigation" />
 
 
 </LinearLayout>

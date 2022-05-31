@@ -2,22 +2,29 @@ package com.example.berikabar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.berikabar.berita.BeritaSource;
+import com.example.berikabar.bookmark.Bookmark;
+import com.example.berikabar.bookmark.BookmarkModel;
 import com.squareup.picasso.Picasso;
 
 public class BeritaDetail extends AppCompatActivity {
     TextView tvJudul,tvSumber,tvTanggal,tvAuthor,tvDeskripsi, tvUrl;
     String titleBerita,timeBerita,authorBerita,sumberBerita,deskripsiBerita,urlBerita,imageUrl;
     ImageView imageView;
+    ImageButton btnBookmark;
     AppCompatButton btnCheck;
 
     @Override
@@ -32,6 +39,7 @@ public class BeritaDetail extends AppCompatActivity {
         tvUrl = findViewById(R.id.tvUrl);
         imageView = findViewById(R.id.imageView);
         btnCheck = findViewById(R.id.buttonWebView);
+        btnBookmark = findViewById(R.id.saveArticle);
 
         getData();
         setData();
@@ -40,6 +48,21 @@ public class BeritaDetail extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(BeritaDetail.this, BeritaWebView.class).putExtra("url", urlBerita));
+
+            }
+        });
+
+        btnBookmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent replyIntent = new Intent(BeritaDetail.this,BookmarkActivity.class);
+                BookmarkModel viewModel = new ViewModelProvider(BeritaDetail.this).get(BookmarkModel.class);
+                replyIntent.putExtra("title",titleBerita);
+                replyIntent.putExtra("source",sumberBerita);
+                replyIntent.putExtra("url",urlBerita);
+                replyIntent.putExtra("imageUrl",imageUrl);
+                viewModel.insertBookmark(titleBerita,sumberBerita,urlBerita,imageUrl);
+                Toast.makeText(BeritaDetail.this,"Berita Berhasil di Bookmark", Toast.LENGTH_SHORT).show();
 
             }
         });

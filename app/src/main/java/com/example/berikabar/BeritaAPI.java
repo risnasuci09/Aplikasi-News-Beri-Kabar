@@ -1,6 +1,6 @@
 package com.example.berikabar;
 
-import com.example.berikabar.entity.BeritaResponse;
+import com.example.berikabar.berita.BeritaResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
